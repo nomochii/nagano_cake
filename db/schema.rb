@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_04_220043) do
+ActiveRecord::Schema.define(version: 2023_08_04_223134) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer "item_id", null: false
@@ -38,6 +38,25 @@ ActiveRecord::Schema.define(version: 2023_08_04_220043) do
     t.boolean "is_deleted", default: false, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "product_name", null: false
+    t.text "updated_at", null: false
+    t.integer "price", null: false
+    t.datetime "created_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.string "shipping_name", null: false
+    t.string "shipping_address", null: false
+    t.string "shipping_postal_code", null: false
+    t.integer "postage", null: false
+    t.integer "total_amount", null: false
+    t.integer "payment_method", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
