@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
+class DeviseCreateAdmins < ActiveRecord::Migration[6.1]
   def change
-    create_table :customers do |t|
+    create_table :admins do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -16,10 +16,10 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
-      #t.datetime :current_sign_in_at
-      #t.datetime :last_sign_in_at
-      #t.string   :current_sign_in_ip
-      #t.string   :last_sign_in_ip
+      # t.datetime :current_sign_in_at
+      # t.datetime :last_sign_in_at
+      # t.string   :current_sign_in_ip
+      # t.string   :last_sign_in_ip
 
       ## Confirmable
       # t.string   :confirmation_token
@@ -32,25 +32,17 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      t.string :first_name, null: false
-      t.string :last_name, null: false
-      t.string :last_name_kana, null: false
-      t.string :first_name_kana, null: false
-      t.string :postal_code, null: false
-      t.string :address, null: false
-      t.string :telephone_number, null: false
+
+      #t.timestamps null: false
 
       t.datetime :created_at, null: false
       t.datetime :updated_at, null: false
 
-      t.boolean :is_deleted, default: false, null: false
-
-
-      #t.timestamps null: false
     end
-    add_index :customers, :email,                unique: true
-    add_index :customers, :reset_password_token, unique: true
-    # add_index :customers, :confirmation_token,   unique: true
-    # add_index :customers, :unlock_token,         unique: true
+
+    add_index :admins, :email,                unique: true
+    add_index :admins, :reset_password_token, unique: true
+    # add_index :admins, :confirmation_token,   unique: true
+    # add_index :admins, :unlock_token,         unique: true
   end
 end
