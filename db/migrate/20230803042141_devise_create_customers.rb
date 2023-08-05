@@ -40,13 +40,13 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.string :address, null: false
       t.string :telephone_number, null: false
 
-      t.datetime :created_at, null: false
-      t.datetime :updated_at, null: false
+      # t.datetime :created_at, null: false
+      # t.datetime :updated_at, null: false
 
       t.boolean :is_deleted, default: false, null: false
 
 
-      #t.timestamps null: false
+      t.timestamps null: false
     end
     add_index :customers, :email,                unique: true
     add_index :customers, :reset_password_token, unique: true

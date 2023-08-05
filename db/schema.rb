@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2023_08_05_013609) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 2023_08_05_013609) do
     t.integer "item_id", null: false
     t.integer "customer_id", null: false
     t.integer "amount", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -45,18 +45,19 @@ ActiveRecord::Schema.define(version: 2023_08_05_013609) do
     t.string "postal_code", null: false
     t.string "address", null: false
     t.string "telephone_number", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.boolean "is_deleted", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
   create_table "items", force: :cascade do |t|
     t.string "product_name", null: false
-    t.text "updated_at", null: false
+    t.text "introduction", null: false
     t.integer "price", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "order_details", force: :cascade do |t|
@@ -64,8 +65,8 @@ ActiveRecord::Schema.define(version: 2023_08_05_013609) do
     t.integer "order_id", null: false
     t.integer "amount", null: false
     t.integer "purchase_price", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -76,8 +77,8 @@ ActiveRecord::Schema.define(version: 2023_08_05_013609) do
     t.integer "postage", null: false
     t.integer "total_amount", null: false
     t.integer "payment_method", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

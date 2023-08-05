@@ -7,10 +7,10 @@ class CreateOrderDetails < ActiveRecord::Migration[6.1]
       t.integer :amount, null: false
       t.integer :purchase_price, null: false
 
-      t.datetime :created_at, null: false
-      t.datetime :updated_at, null: false
+      #t.datetime :created_at, null: false
+      #t.datetime :updated_at, null: false
 
-      #t.timestamps
+      t.timestamps null: false
     end
   end
 end
